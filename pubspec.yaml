@@ -26,7 +26,7 @@ dev_dependencies:
   cloud_firestore: ^0.8.2
   firebase_auth: ^0.6.6
 assets:
-  assets/A.jpeg
+  assets/A.JPG
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec

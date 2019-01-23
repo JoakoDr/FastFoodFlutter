@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase/main.dart';
 
 class FastFoodDetails extends StatelessWidget {
+  Restaurant restaurant;
+  FastFoodDetails(this.restaurant);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,7 +48,8 @@ class _FastDetailsState extends State<FastDetails> {
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
     // ignore: argument_type_not_assignable
-    final restaurant = Restaurant.fromSnapshot(data);
+    FastFoodDetails lol;
+    final restaurant = lol.restaurant;
 
     return Padding(
       key: ValueKey(restaurant.name),
@@ -63,22 +67,4 @@ class _FastDetailsState extends State<FastDetails> {
       ),
     );
   }
-}
-
-class Restaurant {
-  final String name;
-  final String calories;
-  final DocumentReference reference;
-
-  Restaurant.fromMap(Map<String, dynamic> map, {this.reference})
-      : assert(map['Nombre'] != null),
-        assert(map['Calorias'] != null),
-        name = map['Nombre'],
-        calories = map['Calorias'];
-
-  Restaurant.fromSnapshot(DocumentSnapshot snapshot)
-      : this.fromMap(snapshot.data, reference: snapshot.reference);
-
-  @override
-  String toString() => "Restaurante<$name:$calories>";
 }

@@ -35,7 +35,8 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           children: <Widget>[
             DrawerHeader(
-                child: Container(
+                child: Image(
+                  image: AssetImage("assets/A.JPG"),
                   color: Colors.white,
                 )
             ),
@@ -80,8 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _signOut() async {
     try {
       await auth.signOut();
-      
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => LoginPage()),
       );
@@ -124,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
           trailing: Text(restaurant.food),
           onTap: () => Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => FastFoodDetails()),
+            MaterialPageRoute(builder: (context) => FastFoodDetails(restaurant)),
           ),
         ),
       ),
@@ -136,13 +136,16 @@ class _MyHomePageState extends State<MyHomePage> {
 class Restaurant {
   final String name;
   final String food;
+  final String calories;
   final DocumentReference reference;
 
   Restaurant.fromMap(Map<String, dynamic> map, {this.reference})
       : assert(map['Nombre'] != null),
         assert(map['Comida'] != null),
+        assert(map['Calorias'] != null),
         name = map['Nombre'],
-        food = map['Comida'];
+        food = map['Comida'],
+        calories = map['Calorias'];
 
   Restaurant.fromSnapshot(DocumentSnapshot snapshot)
       : this.fromMap(snapshot.data, reference: snapshot.reference);

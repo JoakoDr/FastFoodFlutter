@@ -80,6 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _signOut() async {
     try {
       await auth.signOut();
+      
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => LoginPage()),

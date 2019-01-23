@@ -124,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
           trailing: Text(restaurant.food),
           onTap: () => Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => FastFoodDetails(restaurant)),
+            MaterialPageRoute(builder: (context) => FastDetails(restaurant)),
           ),
         ),
       ),

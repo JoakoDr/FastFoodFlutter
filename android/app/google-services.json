@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "389597950881",
+    "firebase_url": "https://fastfood-906b8.firebaseio.com",
+    "project_id": "fastfood-906b8",
+    "storage_bucket": "fastfood-906b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389597950881:android:c90ade9ee4059d0b",
+        "android_client_info": {
+          "package_name": "firebase.flutter.flutterfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389597950881-apm217915091lbcfl61b3mdsig0vnksf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhJXESXdsUyBFf0RmndEnHycl4jDiFKBI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

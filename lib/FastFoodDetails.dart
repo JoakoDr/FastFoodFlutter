@@ -1,11 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase/Models/Menu.dart';
 import 'package:flutter_firebase/main.dart';
 
 
 class FastDetails extends StatefulWidget {
-  Restaurant restaurant;
-  FastDetails(this.restaurant);
+  Menu menu;
+  FastDetails(this.menu);
   @override
   _FastDetailsState createState() {
     return _FastDetailsState();
@@ -25,10 +26,10 @@ class _FastDetailsState extends State<FastDetails> {
               child:
                   new Column(
             children: <Widget>[
-              new Icon(Icons.home, size: 100.0,color: Colors.red,),
-              new Text("Compañia: "+widget.restaurant.name),
-              new Text("Tipo de Comida : "+widget.restaurant.food),
-              new Text("Calorias: "+widget.restaurant.calories)
+              new Image.network(widget.menu.imagen),
+              new Text("Nombre del Menu: ${widget.menu.name}"),
+              new Text("Calorias :  ${widget.menu.calories}"),
+              new Text("Valoracion:  ${widget.menu.valoracion}")
             ],
         )
 

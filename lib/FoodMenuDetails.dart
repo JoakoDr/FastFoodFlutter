@@ -9,8 +9,8 @@ import 'package:flutter_firebase/main.dart';
 
 class FoodMenuDetails extends StatefulWidget {
   dynamic menus = new List<dynamic>();
-
-  FoodMenuDetails(this.menus);
+  String name;
+  FoodMenuDetails(this.menus, this.name);
   Map menusB = new Map<String,dynamic>();
   @override
   _FoodMenuDetailsState createState() {
@@ -24,7 +24,7 @@ class _FoodMenuDetailsState extends State<FoodMenuDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Fast Food Restaurants',),
+      appBar: AppBar(title: Text('${widget.name}',),
         backgroundColor: Colors.black,
       ),
       drawer: Drawer(
@@ -52,13 +52,10 @@ class _FoodMenuDetailsState extends State<FoodMenuDetails> {
             ListTile(
               leading: Icon(Icons.edit,
                 color: Colors.black,),
-              title: Text("Edit", style: TextStyle(fontSize: 25),),
+              title: Text("Insert", style: TextStyle(fontSize: 25),),
               onTap: ()
               {
-                //  _launchURL();
-
-
-
+                print("No puedes pringao");
               },
             ),
             ListTile(

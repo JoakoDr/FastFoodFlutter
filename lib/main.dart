@@ -65,13 +65,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               leading: Icon(Icons.edit,
                 color: Colors.black,),
-              title: Text("Edit", style: TextStyle(fontSize: 25),),
+              title: Text("Insert", style: TextStyle(fontSize: 25),),
               onTap: ()
               {
-                //  _launchURL();
-
-
-
+                print("No puedes pringao");
               },
             ),
             ListTile(
@@ -154,7 +151,7 @@ class _MyHomePageState extends State<MyHomePage> {
           trailing: Text(restaurant.food),
           onTap: () => Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => FoodMenuDetails(restaurant.menus)),
+            MaterialPageRoute(builder: (context) => FoodMenuDetails(restaurant.menus, restaurant.name)),
           ),
         ),
       ),

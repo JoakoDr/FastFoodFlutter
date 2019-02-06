@@ -141,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
         child: new Text(
             _authHint,
             key: new Key('hint'),
-            style: new TextStyle(fontSize: 18.0, color: Colors.grey),
+            style: new TextStyle(fontSize: 18.0, color: Colors.black),
             textAlign: TextAlign.center)
     );
   }
@@ -151,13 +151,19 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text("Login"),
+          title: Center(child: new Text("FatFood")),
+          backgroundColor: Colors.black,
         ),
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.black,
         body: new SingleChildScrollView(child: new Container(
             padding: const EdgeInsets.all(16.0),
+
             child: new Column(
                 children: [
+                      new Image(
+                        image: new AssetImage("assets/logo.png"),
+                        height: 250,
+                      ),
                   new Card(
                       child: new Column(
                           mainAxisSize: MainAxisSize.min,
@@ -178,6 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                 ]
             )
         ))
+
     );
   }
 

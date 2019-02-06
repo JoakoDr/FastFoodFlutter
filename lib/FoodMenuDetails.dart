@@ -24,20 +24,31 @@ class _FoodMenuDetailsState extends State<FoodMenuDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Fast Food Restaurants')
+      appBar: AppBar(title: Text('Fast Food Restaurants',),
+        backgroundColor: Colors.black,
       ),
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
             DrawerHeader(
                 child: Image(
-                  image: AssetImage("assets/A.JPG"),
-                  color: Colors.white,
+                  image: AssetImage("assets/logo.png"),
                 )
             ),
             ListTile(
-              leading: Icon(Icons.home),
-              title: Text("Home"),
+              leading: Icon(Icons.home,
+              color: Colors.black,
+              ),
+              title: Text("Home", style: TextStyle(fontSize: 25),),
+              onTap: ()
+              {
+                _home();
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.edit,
+                color: Colors.black,),
+              title: Text("Edit", style: TextStyle(fontSize: 25),),
               onTap: ()
               {
                 //  _launchURL();
@@ -47,19 +58,9 @@ class _FoodMenuDetailsState extends State<FoodMenuDetails> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.edit),
-              title: Text("Edit"),
-              onTap: ()
-              {
-                //  _launchURL();
-
-
-
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.power_settings_new),
-              title: Text("Log Out"),
+              leading: Icon(Icons.power_settings_new,
+                color: Colors.black,),
+              title: Text("Log Out", style: TextStyle(fontSize: 25),),
               onTap: ()
               {
                 _signOut();
@@ -71,6 +72,19 @@ class _FoodMenuDetailsState extends State<FoodMenuDetails> {
       ),
       body: _buildBody(context),
     );
+  }
+
+  void _home() async {
+    try {
+      await auth.signOut();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => MyHomePage()),
+      );
+    } catch (e) {
+      print(e);
+    }
+
   }
 
   void _signOut() async {
@@ -116,7 +130,7 @@ class _FoodMenuDetailsState extends State<FoodMenuDetails> {
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
+          border: Border.all(color: Colors.black),
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: ListTile(

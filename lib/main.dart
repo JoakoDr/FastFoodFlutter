@@ -16,6 +16,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Fast Food',
       home: LoginPage(),
+      theme: new ThemeData(
+        backgroundColor: Colors.black
+      )
     );
   }
 }
@@ -33,20 +36,33 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(title: Text('Fast Food Restaurants')
+      appBar: AppBar(title: Text('Fast Food Restaurants'),
+        backgroundColor: Colors.black,
       ),
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
             DrawerHeader(
                 child: Image(
-                  image: AssetImage("assets/A.JPG"),
-                  color: Colors.white,
+                  image: AssetImage("assets/logo.png"),
+
                 )
+
+            ),
+
+            ListTile(
+              leading: Icon(Icons.home,
+                color: Colors.black,),
+              title: Text("Home", style: TextStyle(fontSize: 25),),
+              onTap: ()
+              {
+                _home;
+              },
             ),
             ListTile(
-              leading: Icon(Icons.home),
-              title: Text("Home"),
+              leading: Icon(Icons.edit,
+                color: Colors.black,),
+              title: Text("Edit", style: TextStyle(fontSize: 25),),
               onTap: ()
               {
                 //  _launchURL();
@@ -56,19 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.edit),
-              title: Text("Edit"),
-              onTap: ()
-              {
-                //  _launchURL();
-
-
-
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.power_settings_new),
-              title: Text("Log Out"),
+              leading: Icon(Icons.power_settings_new,
+                color: Colors.black,),
+              title: Text("Log Out", style: TextStyle(fontSize: 25),),
               onTap: ()
               {
                 _signOut();
@@ -80,6 +86,19 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: _buildBody(context),
     );
+  }
+
+  void _home() async {
+    try {
+      await auth.signOut();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => MyHomePage()),
+      );
+    } catch (e) {
+      print(e);
+    }
+
   }
 
   void _signOut() async {
@@ -94,6 +113,8 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
   }
+
+
   Widget _buildBody(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
       stream: Firestore.instance.collection('restaurants').snapshots(),
@@ -121,11 +142,11 @@ class _MyHomePageState extends State<MyHomePage> {
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
+          border: Border.all(color: Colors.black),
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: ListTile(
-          leading: Image.network(restaurant.image, fit: BoxFit.cover ,height: 40.0,width: 40.0),
+          leading: Image.network(restaurant.image, fit: BoxFit.cover ,height: 50.0,width: 50.0),
           title: Text(restaurant.name),
           trailing: Text(restaurant.food),
           onTap: () => Navigator.push(

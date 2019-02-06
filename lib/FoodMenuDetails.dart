@@ -2,6 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/FastFoodDetails.dart';
+import 'package:flutter_firebase/InsertFood.dart';
 import 'package:flutter_firebase/Models/Menu.dart';
 import 'package:flutter_firebase/auth.dart';
 import 'package:flutter_firebase/logIn_SignUp.dart';
@@ -26,80 +27,21 @@ class _FoodMenuDetailsState extends State<FoodMenuDetails> {
     return Scaffold(
       appBar: AppBar(title: Text('${widget.name}',),
         backgroundColor: Colors.black,
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/logo.png"))),
-            ),
-            ListTile(
-              title: Text(""),
-              onTap: ()
-              {
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.home,
-              color: Colors.black,
-              ),
-              title: Text("Home", style: TextStyle(fontSize: 25),),
-              onTap: ()
-              {
-                _home();
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.edit,
-                color: Colors.black,),
-              title: Text("Insert", style: TextStyle(fontSize: 25),),
-              onTap: ()
-              {
-                print("No puedes pringao");
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.power_settings_new,
-                color: Colors.black,),
-              title: Text("Log Out", style: TextStyle(fontSize: 25),),
-              onTap: ()
-              {
-                _signOut();
 
-              },
-            )
-          ],
-        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              
+            },
+          )
+        ],
       ),
+
       body: _buildBody(context),
     );
   }
 
-  void _home() async {
-    try {
-      await auth.signOut();
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => MyHomePage()),
-      );
-    } catch (e) {
-      print(e);
-    }
-
-  }
-
-  void _signOut() async {
-    try {
-      await auth.signOut();
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => LoginPage()),
-      );
-    } catch (e) {
-      print(e);
-    }
-
-  }
   Widget _buildBody(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
       stream: Firestore.instance

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/FastFoodDetails.dart';
 import 'package:flutter_firebase/FoodMenuDetails.dart';
+import 'package:flutter_firebase/InsertFood.dart';
 import 'package:flutter_firebase/Models/Restaurant.dart';
 import 'package:flutter_firebase/auth.dart';
 import 'package:flutter_firebase/logIn_SignUp.dart';
@@ -68,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               title: Text("Insert", style: TextStyle(fontSize: 25),),
               onTap: ()
               {
-                print("No puedes pringao");
+                _insert();
               },
             ),
             ListTile(
@@ -94,6 +95,19 @@ class _MyHomePageState extends State<MyHomePage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => MyHomePage()),
+      );
+    } catch (e) {
+      print(e);
+    }
+
+  }
+
+  void _insert() async {
+    try {
+      await auth.signOut();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => InsertFood()),
       );
     } catch (e) {
       print(e);

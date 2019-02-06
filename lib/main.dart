@@ -43,13 +43,16 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           children: <Widget>[
             DrawerHeader(
-                child: Image(
-                  image: AssetImage("assets/logo.png"),
-
-                )
+                decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/logo.png"))),
 
             ),
 
+            ListTile(
+              title: Text(""),
+              onTap: ()
+              {
+              },
+            ),
             ListTile(
               leading: Icon(Icons.home,
                 color: Colors.black,),

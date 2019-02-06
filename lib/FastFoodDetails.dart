@@ -17,8 +17,9 @@ class _FastDetailsState extends State<FastDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Fast Food Restaurants')),
+      appBar: AppBar(title: Text('${widget.menu.name}'), backgroundColor: Colors.black,),
       body: new Container(
+        color: Colors.white,
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -26,14 +27,25 @@ class _FastDetailsState extends State<FastDetails> {
               child:
                   new Column(
             children: <Widget>[
-              new Image.network(widget.menu.imagen),
-              new Text("Nombre del Menu: ${widget.menu.name}"),
-              new Text("Calorias :  ${widget.menu.calories}"),
-              new Text("Valoracion:  ${widget.menu.valoracion}")
-            ],
-        )
+              new Image.network(widget.menu.imagen, height: 400,),
 
-            )
+            ],
+                   )
+
+            ),
+
+            ListTile(
+              title: new Text("Calorías :  ${widget.menu.calories}", style: TextStyle(fontSize: 25), textAlign: TextAlign.center,),
+              onTap: ()
+              {
+              },
+            ),
+            ListTile(
+              title: new Text("Valoracion:  ${widget.menu.valoracion}", style: TextStyle(fontSize: 25), textAlign: TextAlign.center,),
+              onTap: ()
+              {
+              },
+            ),
           ],
         ),
       ),

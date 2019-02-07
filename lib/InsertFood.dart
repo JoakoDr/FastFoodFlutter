@@ -5,9 +5,9 @@ import 'package:flutter_firebase/main.dart';
 
 
 class InsertFood extends StatefulWidget {
-  Menu menu;
+  String name;
 
-  InsertFood();
+  InsertFood(this.name);
   @override
   _InsertFoodState createState() {
     return _InsertFoodState();
@@ -21,7 +21,7 @@ class _InsertFoodState extends State<InsertFood> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Insert New Menu'), backgroundColor: Colors.black,),
+      appBar: AppBar(title: Text('${widget.name}'), backgroundColor: Colors.black,),
       body: new Container(
         color: Colors.white,
         child: new Column(

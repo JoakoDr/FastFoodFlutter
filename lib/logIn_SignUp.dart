@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
           _authHint = 'Signed In\n\nUser id: $userId';
         });
 
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => MyHomePage()),
         );

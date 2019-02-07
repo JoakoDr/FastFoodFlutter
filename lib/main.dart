@@ -69,7 +69,6 @@ class _MyHomePageState extends State<MyHomePage> {
               title: Text("Insert", style: TextStyle(fontSize: 25),),
               onTap: ()
               {
-                _insert();
               },
             ),
             ListTile(
@@ -102,18 +101,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   }
 
-  void _insert() async {
-    try {
-      await auth.signOut();
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => InsertFood()),
-      );
-    } catch (e) {
-      print(e);
-    }
-
-  }
 
   void _signOut() async {
     try {

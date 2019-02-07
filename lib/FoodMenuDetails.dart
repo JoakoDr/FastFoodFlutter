@@ -32,7 +32,7 @@ class _FoodMenuDetailsState extends State<FoodMenuDetails> {
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
-              
+              _insert();
             },
           )
         ],
@@ -52,6 +52,18 @@ class _FoodMenuDetailsState extends State<FoodMenuDetails> {
         return _buildList(context, snapshot.data.documents);
       },
     );
+  }
+
+  void _insert() {
+    try {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => InsertFood(widget.name)),
+      );
+    } catch (e) {
+      print(e);
+    }
+
   }
 
 

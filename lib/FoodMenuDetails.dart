@@ -75,11 +75,6 @@ class _FoodMenuDetailsState extends State<FoodMenuDetails> {
   }
 
   Widget _buildListItem(BuildContext context, Menu menu) {
-    // ignore: argument_type_not_assignable
-
-    // Map<dynamic,dynamic> menusList = new Map<dynamic,dynamic>.from(menus);
-
-   // final menusBueno = Menu.fromMap(menusList);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
